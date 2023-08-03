@@ -12,7 +12,8 @@ class Tank(object):
         if self.alive:
             return "%s (%i armor, %i shells)" % (self.name, self.armor, self.ammo)
         else:
-            return "%s (DEADE)" % self.name
+            return "%s (DEAD)" % self.name
+        
 
     def fire_at(self, enemy):
         if self.ammo >=1:
@@ -36,21 +37,40 @@ class Tank(object):
 meuTanque1 = Tank("Bob")
 meuTanque2 = Tank("Jack")
 meuTanque3 = Tank("Igor")
-meuTanque4 = Tank("Gui")
+meuTanque4 = Tank("Parafina")
 meuTanque5 = Tank("Tony")
 
 arraytank = [meuTanque1, meuTanque2, meuTanque3, meuTanque4,meuTanque5]
+
+randomtank1 = 0
 randomtank1 = random.randint(0, len(arraytank) - 1)
 randomtank2 = randomtank1
-
-while randomtank1 == randomtank2:
-    randomtank2 = random.randint(0, len(arraytank) -1)
 
 print(len(arraytank))
 print(randomtank1)
 print(randomtank2)
 
-arraytank[randomtank1].fire_at(arraytank[randomtank2])
+while len(arraytank) != 1:
+    randomtank1 = random.randint(0, len(arraytank) - 1)
+    randomtank2 = randomtank1
 
-print(arraytank[randomtank1])
-print(arraytank[randomtank2])
+    while randomtank1 == randomtank2:
+        randomtank2 = random.randint(0, len(arraytank) -1)
+
+    if arraytank[randomtank1].alive and arraytank[randomtank2].alive:
+        print(f"{arraytank[randomtank1]} ATACA {arraytank[randomtank2]}")
+        arraytank[randomtank1].fire_at(arraytank[randomtank2])
+        print("--------------------------------------------------------------\n")
+    
+    if not arraytank[randomtank1].alive: 
+        print(f" {arraytank[randomtank1]} fora do jogo!")
+        arraytank.pop(randomtank1)
+        print("______________________________________________________________\n")
+    
+    if not arraytank[randomtank2].alive:
+        print(f" {arraytank[randomtank2]} fora do jogo!")
+        arraytank.pop(randomtank2) 
+        print("______________________________________________________________\n")
+      
+
+print(f"VENCEDOR: {arraytank[0]}")
