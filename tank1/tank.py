@@ -5,7 +5,7 @@ class Tank(object):
     def __init__(self, name):
         self.name = name
         self.alive=True
-        self.ammo=5
+        self.ammo=50
         self.armor=60
 
     def __str__(self):
@@ -46,9 +46,7 @@ randomtank1 = 0
 randomtank1 = random.randint(0, len(arraytank) - 1)
 randomtank2 = randomtank1
 
-print(len(arraytank))
-print(randomtank1)
-print(randomtank2)
+print(f'{"*" * 27} Inicio do Jogo {"*" * 27}\n')
 
 while len(arraytank) != 1:
     randomtank1 = random.randint(0, len(arraytank) - 1)
@@ -60,17 +58,17 @@ while len(arraytank) != 1:
     if arraytank[randomtank1].alive and arraytank[randomtank2].alive:
         print(f"{arraytank[randomtank1]} ATACA {arraytank[randomtank2]}")
         arraytank[randomtank1].fire_at(arraytank[randomtank2])
-        print("--------------------------------------------------------------\n")
+        print(f'{"-" * 70}\n')
     
     if not arraytank[randomtank1].alive: 
         print(f" {arraytank[randomtank1]} fora do jogo!")
         arraytank.pop(randomtank1)
-        print("______________________________________________________________\n")
+        print(f'{"-" * 70}\n')
     
     if not arraytank[randomtank2].alive:
         print(f" {arraytank[randomtank2]} fora do jogo!")
         arraytank.pop(randomtank2) 
-        print("______________________________________________________________\n")
+        print(f'{"_" * 70}\n')
       
 
 print(f"VENCEDOR: {arraytank[0]}")
