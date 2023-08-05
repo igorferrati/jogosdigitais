@@ -1,4 +1,5 @@
 import random
+import time
 
 class Tank(object):
     def __init__(self, name):
@@ -52,8 +53,6 @@ def player_info():
     for tank in tanks.values():
         print(tank)
 
-
-
 print(f'{"*" * 25} Batalha de Tanques {"*" * 25}\n')
 print(f'{"_" * 18} Cada jogador deve criar um tanque! {"_" * 18}\n')
 
@@ -68,8 +67,16 @@ while len(tanks) > 1:
         if not tanks[current_player].alive:
             continue
 
-        print(f"{tanks[current_player]} fará um ataque!\n")
+        print(f'{"_" * 25} Informações dos Jogadores ! {"_" * 25}\n')
+        player_info()
+        print(f'{"_" * 50}\n')
 
+        print("Sorteando...\n")
+        time.sleep(2)
+
+        print(f"{tanks[current_player]} sorteado! fará um ataque!\n")
+
+        print(f"Escolha o alvo para ataque!\n")
         enemy_players = {k: tanks[k] for k in tanks if k != current_player and tanks[k].alive}
         for key, enemy in enemy_players.items():
             print(f"{key}: {enemy}")
@@ -91,8 +98,6 @@ while len(tanks) > 1:
             print(f" {target} fora do jogo!")
             tanks.pop(target_key)
             print(f'{"-" * 70}\n')
-
-    player_info()
 
 winner = tanks[list(tanks.keys())[0]]
 print(f"VENCEDOR: {winner.name}")
