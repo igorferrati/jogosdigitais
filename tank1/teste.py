@@ -32,47 +32,47 @@ class Tank(object):
         print(self.name, "explodes!")
 
 
-def create_tank():
+def create_tanks():
     tanks = {}
     while True:
         qtd = int(input('Quantos tanques vão jogar?[2/10]: '))
         if qtd < 2 or qtd > 10:
-            print('Quantidade invalida!!, digite de 2 a jogadores!')
+            print('Quantidade inválida!!, digite de 2 a 10 jogadores!')
         else:
             break
 
     for i in range(qtd):
-        name = input(f'Nome do 1°{i+1} TANQUE: ')
-        tanks[chr(65 + i)] = Tank(name)
+        name = input(f"Digite o nome do Tanque {i + 1}: ")
+        tanks[chr(65 + i)] = Tank(name)  # Usando chr(65 + i) para obter letras maiúsculas (A, B, C, ...)
 
     return tanks
 
 
 def main():
-    print(f'{"*" * 25} Batalha de Tanques {"*" * 25}\n')
-    print(f'{"_" * 18} Cada jogador deve criar um tanque !{"_" * 18}\n')
+    print("*" * 25, "Batalha de Tanques", "*" * 25)
+    print("_" * 18, "Cada jogador deve criar um tanque!", "_" * 18)
 
-    tanks = create_tank()
+    tanks = create_tanks()
     players = list(tanks.keys())
 
-    def player_info():
+    def print_player_info():
         for player in players:
             print(tanks[player])
 
-    while len(tanks) != 1:
-        random.shuffle(players)
+    while len(tanks) > 1:
+        random.shuffle(players)  # Sorteia a ordem dos jogadores em cada rodada
 
         for current_player in players:
             enemy_players = [player for player in tanks if player != current_player]
 
-            print(f"{tanks[current_player]} fará um ataque!\n")
+            print(f"{tanks[current_player]} ATACA:")
 
             for i, enemy in enumerate(enemy_players):
-                print(f'{i + 1}: {tanks[enemy]}')
+                print(f"{i + 1}: {tanks[enemy]}")
 
             while True:
                 try:
-                    choice = int(input(f'{current_player}, escolha o alvo (1-{len(enemy_players)}): '))
+                    choice = int(input(f"Jogador {current_player}, escolha o alvo (1-{len(enemy_players)}): "))
                     if 1 <= choice <= len(enemy_players):
                         break
                     else:
@@ -84,16 +84,18 @@ def main():
 
             print(f"{tanks[current_player]} ATACA {tanks[target]}")
             tanks[current_player].fire_at(tanks[target])
-            print(f'{"-" * 70}\n')
+            print("-" * 70)
 
-            if not tanks[target].alive: 
-                print(f" {tanks[target]} fora do jogo!")
+            if not tanks[target].alive:
+                print(f"{tanks[target]} fora do jogo!")
                 tanks.pop(target)
-                print(f'{"-" * 70}\n')
-        
-        player_info()
-    
+
+            print("_" * 70)
+
+        print_player_info()
+
     print(f"VENCEDOR: {tanks[list(tanks.keys())[0]]}")
+
 
 if __name__ == "__main__":
     main()
