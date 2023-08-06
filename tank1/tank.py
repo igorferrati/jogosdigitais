@@ -1,5 +1,5 @@
-import random
 import time
+import random
 
 class Tank(object):
     def __init__(self, name):
@@ -60,44 +60,48 @@ tanks = create_tank()
 players = list(tanks.keys())
 
 while len(tanks) > 1:
-    alive_players = [player for player in tanks if tanks[player].alive]
-    random.shuffle(alive_players)
+    current_player = random.choice(players)
+    tank = tanks[current_player]
 
-    for current_player in alive_players:
-        if not tanks[current_player].alive:
-            continue
+    if not tank.alive:
+        continue
 
-        print(f'{"_" * 25} Informações dos Jogadores ! {"_" * 25}\n')
-        player_info()
-        print(f'{"_" * 50}\n')
+    print(f'{"_" * 25} Informações dos Jogadores ! {"_" * 25}\n')
+    player_info()
+    print(f'{"_" * 50}\n')
 
-        print("Sorteando...\n")
-        time.sleep(2)
+    print(len(tanks))
+    print("Sorteando...\n")
+    time.sleep(2)
 
-        print(f"{tanks[current_player]} sorteado! fará um ataque!\n")
+    print(f"{tank} sorteado! fará um ataque!\n")
 
-        print(f"Escolha o alvo para ataque!\n")
-        enemy_players = {k: tanks[k] for k in tanks if k != current_player and tanks[k].alive}
-        for key, enemy in enemy_players.items():
-            print(f"{key}: {enemy}")
+    enemy_players = {k: tanks[k] for k in tanks if k != current_player and tanks[k].alive}
+    if not enemy_players:
+        break
 
-        while True:
-            target_key = input(f'{tanks[current_player].name}, escolha o alvo ({" ".join(enemy_players.keys())}): ').upper()
-            if target_key in enemy_players and enemy_players[target_key].alive:
-                break
-            else:
-                print("Escolha inválida! Digite uma chave válida.")
+    print(f"Escolha o alvo para ataque!\n")
+    for key, enemy in enemy_players.items():
+        print(f"{key}: {enemy}")
 
-        target = enemy_players[target_key]
+    while True:
+        target_key = input(f'{tank.name}, escolha o alvo ({" ".join(enemy_players.keys())}): ').upper()
+        if target_key in enemy_players and enemy_players[target_key].alive:
+            break
+        else:
+            print("Escolha inválida! Digite uma chave válida.")
 
-        print(f"{tanks[current_player]} ATACA {target}")
-        tanks[current_player].fire_at(target)
+    target = enemy_players[target_key]
+
+    print(f"{tank} ATACA {target}")
+    tank.fire_at(target)
+    print(f'{"-" * 70}\n')
+
+    if not target.alive:
+        print(f" {target} fora do jogo!")
+        tanks.pop(target_key)
+        players.remove(target_key)
         print(f'{"-" * 70}\n')
-
-        if not target.alive:
-            print(f" {target} fora do jogo!")
-            tanks.pop(target_key)
-            print(f'{"-" * 70}\n')
 
 winner = tanks[list(tanks.keys())[0]]
 print(f"VENCEDOR: {winner.name}")
