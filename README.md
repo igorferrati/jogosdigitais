@@ -5,3 +5,5 @@ Repositório destinado a estudos desenvolvidos na matérias de jogos digitais da
 ### Aula 1 - Introdução a Jogos
 📁 Desafio jogo tank
 
+### Aula 2 - Fundamentos de Jogos
+📁 Biblioteca pygame
