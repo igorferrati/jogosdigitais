@@ -4,17 +4,15 @@ from sys import exit
 
 pygame.init()
 
-screen = pygame.display.set_mode((640, 480), 0, 32)
+#tela
+screen = pygame.display.set_mode((640, 480))
 
-# Inicializa as cores dos retângulos
-colors = [(255, 0, 0), (0, 255, 0), (0, 0, 255),
-          (255, 255, 0), (255, 0, 255), (0, 255, 255)]
+# define cores
+original_colors = [(255, 0, 0), (0, 140, 0), (0, 90, 255),
+                   (255, 255, 0), (255, 20, 255), (0, 100, 255)]
 
-# Inicializa as cores dos retângulos com cópias das cores originais
-current_colors = list(colors)
-
-lerp_factor = 0.0
-lerp_speed = 0.005
+# Inicializa as cores dos retângulos copiando cores originais
+current_colors = list(original_colors)
 
 while True:
     for event in pygame.event.get():
@@ -30,11 +28,22 @@ while True:
     for i in range(len(current_colors)):
         pygame.draw.rect(screen, current_colors[i], (0, i * 80, 640, 80))
 
-    # Se o botão esquerdo do mouse for pressionado
+    # Se mouse for pressionado
     if pygame.mouse.get_pressed()[0]:
         for i in range(len(current_colors)):
             if y >= i * 80 and y < (i + 1) * 80:
-                t = x / 640  # Normaliza a posição do mouse
-                current_colors[i] = (int(t * colors[i][0]), int(t * colors[i][1]), int(t * colors[i][2]))
+                # Use as coordenadas do mouse para calcular a variação
+                r_variation = int((x / 640) * 255)
+                g_variation = int((y / 480) * 255)
+                
+                # Use a cor original como base e aplique a variação
+                original_r, original_g, original_b = original_colors[i]
+                r = (original_r + r_variation) % 256
+                g = (original_g + g_variation) % 256
+                current_colors[i] = (r, g, original_b)
+
+    # Atualiza o título da janela
+    color_str = ", ".join([str(c) for c in current_colors])
+    pygame.display.set_caption("Cores: " + color_str)
 
     pygame.display.update()
