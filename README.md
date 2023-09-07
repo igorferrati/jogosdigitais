@@ -14,6 +14,3 @@ Repositório destinado a estudos desenvolvidos na matérias de jogos digitais da
 
 ### Aula 2 - Fundamentos de Jogos
 📁 tank2 - Biblioteca pygame
-
-### Aula 3 - Documentação de Jogos
-📁 rgb - Trabalhando com cores
