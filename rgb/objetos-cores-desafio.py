@@ -1,39 +1,15 @@
 import pygame
 from pygame.locals import *
 from sys import exit 
-import random
 
 pygame.init()
 
-#retangulo
-def rectangle_create(screen, color, x, y, width, height):
-    surface = pygame.draw.rect(screen, color, (x, y, width, height))
-    return surface
+# Dimensões da tela
+screen = pygame.display.set_mode((640, 480), 0, 32)
 
-#circle
-def circle_create(screen, color, x, y, radius):
-    surface = pygame.draw.circle(screen, color, (x, y), radius)
-    return surface
-
-#postions
-x1 = random.randint(0,800)
-x2 = random.randint(0,800)
-y2 = random.randint(0,800)
-y1 = random.randint(0,600)
-
-#size
-width = random.randint(1,100)
-height = random.randint(1,100)
-radius = random.randint(1,50)
-
-#screen
-screen = pygame.display.set_mode((800, 600))
-pygame.display.set_caption("Praticando A3")
-
-#color
-color_1 = (random.randint(0, 255), random.randint(0, 255), random.randint(0, 255))
-
-color_2 = (random.randint(0, 255), random.randint(0, 255), random.randint(0, 255))
+# Defina as cores para cada retângulo (RGB)
+colors = [(255, 0, 0), (0, 255, 0), (0, 0, 255),
+          (255, 255, 0), (255, 0, 255), (0, 255, 255)]
 
 
 while True:
@@ -43,10 +19,13 @@ while True:
             pygame.quit()
             exit()
     
-    screen.fill((255, 255, 255))
+    screen.fill((0, 0, 0))  # Preenche a tela com preto
 
-    rectangle_create(screen, color_1, x1, y1, width, height)
-    circle_create(screen, color_2, x2, y2, radius)
+    pygame.draw.rect(screen, colors[0], (0, 80, 640, 80))
+    pygame.draw.rect(screen, colors[1], (0, 160, 640, 80))
+    pygame.draw.rect(screen, colors[2], (0, 240, 640, 80))
+    pygame.draw.rect(screen, colors[3], (0, 320, 640, 80))
+    pygame.draw.rect(screen, colors[4], (0, 400, 640, 80))
+    pygame.draw.rect(screen, colors[5], (0, 480, 640, 80))
 
-    #update screen
     pygame.display.update()
