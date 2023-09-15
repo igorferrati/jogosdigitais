@@ -8,11 +8,11 @@ fpsClock = pygame.time.Clock()
 
 # set up the window
 DISPLAYSURF = pygame.display.set_mode((400, 300), 0, 32)
-pygame.display.set_caption('Animation')
+pygame.display.set_caption('Fish Animation')
 
 WHITE = (255, 255, 255)
 
-catImg = pygame.image.load('/home/igor/Desktop/docs/myprojects/jogosdigitais/fish-frame/magikarpet.png')
+catImg = pygame.image.load('/home/igor/Desktop/docs/myprojects/jogosdigitais/fish-frame/magikarp.png')
 #set image
 catImg = pygame.transform.scale(catImg, (120, 120))
 
