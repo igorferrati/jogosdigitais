@@ -6,7 +6,8 @@
 
 * Criação de formas na sourface com posições e tamanhos randômicos.
 
-![Criação de objetos](random.png)
+<img src="random.png" width="200" height="180">
+
 
 ### Desafio
 
@@ -15,4 +16,4 @@
 * Variação de cores baseado na posição x, y do mouse.
 
 
-![random colors](random-colors.png)
+<img src="random-colors.png" width="200" height="180">
