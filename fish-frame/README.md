@@ -1,7 +1,17 @@
-### Fish Game
+## Fish Game
 
-Consiste na manipulação de frames / movimentação de imagens com pygame
+### Praticando
 
-Execução:
+Consiste na manipulação de frames / movimentação de imagens com pygame.
 
-<img src="fish.gif" width="220" height="200">
+```animacao-fish.py``` execução:
+
+<img src="fish.gif" width="240" height="200">
+
+### Aplicando Aquarium
+
+Consiste na manipulação diversos elementos e movimentações.
+
+```aquarium.py``` execução:
+
+<img src="aquarium.gif" width="240" height="200">

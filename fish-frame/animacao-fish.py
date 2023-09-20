@@ -12,35 +12,35 @@ pygame.display.set_caption('Fish Animation')
 
 WHITE = (255, 255, 255)
 
-catImg = pygame.image.load('/home/igor/Desktop/docs/myprojects/jogosdigitais/fish-frame/magikarp.png')
+fishImg = pygame.image.load('/home/igor/Desktop/docs/myprojects/jogosdigitais/fish-frame/magikarp.png')
 #set image
-catImg = pygame.transform.scale(catImg, (120, 120))
+fishImg = pygame.transform.scale(fishImg, (120, 120))
 
-catx = 10
-caty = 10
+fishx = 10
+fishy = 10
 direction = 'right'
 
 while True: # the main game loop
 
     if direction == 'right':
-        catx += 5
-        if catx == 280:
+        fishx += 5
+        if fishx == 280:
             direction = 'down'
     elif direction == 'down':
-        caty += 5
-        if caty == 180:
+        fishy += 5
+        if fishy == 180:
             direction = 'left'
     elif direction == 'left':
-        catx -= 5
-        if catx == 10:
+        fishx -= 5
+        if fishx == 10:
             direction = 'up'
     elif direction == 'up':
-        caty -= 5
-        if caty == 10:
+        fishy -= 5
+        if fishy == 10:
             direction = 'right'
             
     DISPLAYSURF.fill(WHITE)
-    DISPLAYSURF.blit(catImg, (catx, caty))
+    DISPLAYSURF.blit(fishImg, (fishx, fishy))
 
     for event in pygame.event.get():
         if event.type == QUIT:
