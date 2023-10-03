@@ -8,10 +8,10 @@ fpsClock = pygame.time.Clock()
 
 # set up the window
 DISPLAYSURF = pygame.display.set_mode((400, 300), 0, 32)
-pygame.display.set_caption('Animation')
+pygame.display.set_caption('keyboard cat - Aula 5')
 
 WHITE = (255, 255, 255)
-catImg = pygame.image.load('/home/igor/projects/jogosdigitais/cat-frame/cat.png')
+catImg = pygame.image.load('/home/igor/projects/jogosdigitais/cat-keyboard/cat.png')
 catx = 10
 caty = 10
 direction = 'right'
