@@ -10,4 +10,9 @@ Manipular a imagem do gato pelo teclado, utilize as seguintes teclas:
 
 * f inverte a imagem (flip) 
 
+
+exec cat-keyboard.py:
+
+<img src="cat-game.jpeg" width="300" height="250">
+
 ---
