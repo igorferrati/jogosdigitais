@@ -22,3 +22,7 @@ Repositório destinado a estudos desenvolvidos na matérias de jogos digitais da
 📁 cat-frame - frame cat
 
 📁 fish-frame - frame fish
+
+### Aula 5 - Câmeras em Jogos
+
+📁 cat-keyboard
