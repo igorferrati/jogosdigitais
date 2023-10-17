@@ -3,11 +3,13 @@ import pygame
 from pygame.locals import *
 from random import randint 
 
-class Asteroide:
-    def __init__(self , x, y, raio):
+class Asteroid:
+    def __init__(self , x, y, raio, acceleration_x, acceleration_y):
         self.x = x
         self.y = y
         self.raio = raio
+        self.acceleration_x = acceleration_x
+        self.acceleration_y = acceleration_y
 
 
 def colisao(ast1, ast2):
@@ -18,36 +20,41 @@ def colisao(ast1, ast2):
     else:
         return False
 
+size = [20, 5, 10]
+colorAsteroid = [(186,85,211),(245,222,179),(248,248,255)]
 
-asteroides = []
-asteroides.append(Asteroide(180,180, 50))
-asteroides.append(Asteroide(110,110, 50))
+asteroids = [
+    Asteroid(randint(10,590), randint(10, 390), size[i%3], randint(-1,1), randint(-1,1)) for i in range(10)
+]
 
-
-print(colisao(asteroides[0],asteroides[1]))
-
-#importa a biblioteca pygame
-
-
-#inicializa as módulos dessa biblioteca.
 pygame.init()
-
-#Seta o tamanho da janela
 screen = pygame.display.set_mode((600,400))
+screen.fill((0, 0, 0))
+pygame.display.set_caption('* A S T E R O I D S *')
 
-#troca a cor da janela para branco
-screen.fill((255,255,255))
-
-colorCirc1 = (255,0,0)
-colorCirc2 = (0,0,255)
-
-pygame.draw.circle(screen, colorCirc1, (asteroides[0].x, asteroides[0].y), asteroides[0].raio, 1)
-pygame.draw.circle(screen, colorCirc2, (asteroides[1].x, asteroides[1].y), asteroides[1].raio, 1)
+clock = pygame.time.Clock()
 
 while True:
     for event in pygame.event.get():
         if event.type == QUIT:
             pygame.quit()
             quit()
-#atualiza a cor da janela
+
+    for asteroid in asteroids:
+        asteroid.x += asteroid.acceleration_x
+        asteroid.y += asteroid.acceleration_y
+
+        if asteroid.x < 0 or asteroid.x > 600:
+            asteroid.acceleration_x = -asteroid.acceleration_x #mult -1
+        if asteroid.y < 0 or asteroid.y > 400:
+            asteroid.acceleration_y = -asteroid.acceleration_y 
+    
+    screen.fill((0,0,0))
+
+    #drawing asteroids
+    for i, ateroid in enumerate(asteroids):
+        pygame.draw.circle(screen, colorAsteroid[i%3], (asteroids[i].x, asteroids[i].y), asteroids[i].raio)
+
     pygame.display.flip()
+
+    clock.tick(60)
