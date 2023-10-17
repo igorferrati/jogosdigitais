@@ -26,3 +26,7 @@ Repositório destinado a estudos desenvolvidos na matérias de jogos digitais da
 ### Aula 5 - Câmeras em Jogos
 
 📁 cat-keyboard
+
+### Aula 6 - Colisões
+
+📁 colisao
