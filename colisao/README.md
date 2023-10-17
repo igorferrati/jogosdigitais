@@ -3,6 +3,6 @@
 Manipulação de objetos (asteroids) para estudo de colisao com pygames.
 
 
-```colisao.py``` execução:
+```asteroids.py``` execução:
 
-<img src="colisao.gif" width="350" height="225">
+<img src="colisao.gif" width="450" height="300">
