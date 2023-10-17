@@ -2,6 +2,7 @@ import math
 import pygame
 from pygame.locals import *
 from random import randint 
+from time import sleep
 
 class Asteroid:
     def __init__(self , x, y, raio, acceleration_x, acceleration_y, color):
@@ -64,14 +65,14 @@ while True:
                     removed_asteroids.append(asteroid1)
                 if asteroid2 not in removed_asteroids:
                     removed_asteroids.append(asteroid2)
-    
-    #remove to asteroids list
-    for asteroid in removed_asteroids:
-        asteroids.remove(asteroid)
         
     #drawing asteroids
     for i, ateroid in enumerate(asteroids):
         pygame.draw.circle(screen, asteroids[i].color, (asteroids[i].x, asteroids[i].y), asteroids[i].raio)
+
+    #remove to asteroids list
+    for asteroid in removed_asteroids:
+        asteroids.remove(asteroid)
 
     pygame.display.flip()
 
