@@ -30,3 +30,7 @@ Repositório destinado a estudos desenvolvidos na matérias de jogos digitais da
 ### Aula 6 - Colisões
 
 📁 colisao
+
+### Aula 7 - Criando a Experiência do jogador
+
+📁 papa-bolinha
