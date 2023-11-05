@@ -7,7 +7,7 @@ Repositório destinado a estudos desenvolvidos na matérias de **jogos digitais*
 ### Objetivo:
 
 * Desenvolvimento em python para abordagem de **jogos digitais**;
-* Utilização biblioteca **pygames**.
+* Utilização biblioteca **pygame**.
 
 ---
 
