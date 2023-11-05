@@ -1,16 +1,20 @@
 # Jogos Digitais
 
+Repositório destinado a estudos desenvolvidos na matérias de **jogos digitais** da Universidade Presbiteriana Mackenzie
+- Curso Análise e Desenvolvimento de Sistenas 2023, 4° período.
+- Materia: Jogos Digitais.
+
 ### Objetivo:
 
 * Desenvolvimento em python para abordagem de **jogos digitais**;
-* Utilização biblioteca **pygames**
+* Utilização biblioteca **pygame**.
 
 ---
 
-Repositório destinado a estudos desenvolvidos na matérias de jogos digitais da UPM, curso ADS 2023, 4 período.
+Grade de desenvolvimento:
 
 | Aula | Tema | Arquivos | Descrição |
-| :---:|:---:|:---: |:---:|
+| :---:|:---|:--- |:---|
 | Aula 1 | Introdução a Jogos |📁 tank1 | Desafio jogo tank |
 |Aula 2 | Fundamentos de Jogos |📁 tank2 | Biblioteca pygame |
 |Aula 3| Documentação de Jogos|📁 rgb | Trabalhando com cores |
