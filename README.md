@@ -11,7 +11,7 @@ Repositório destinado a estudos desenvolvidos na matérias de **jogos digitais*
 
 ---
 
-Grade de desenvolvimento:
+Grade de desenvolvimento :bug: :
 
 | Aula | Tema | Arquivos | Descrição |
 | :---:|:---|:--- |:---|
@@ -22,6 +22,6 @@ Grade de desenvolvimento:
 |Aula 5 | Câmeras em Jogos|📁 cat-keyboard| Movimentando pela tela com keyboard |
 |Aula 6 | Colisões|📁 colisao| Trabalhando com colisões de objetos|
 | Aula 7 | Criando a Experiência do jogador|📁 papa-bolinha| Jogos com interações dos jogadores |
-| Aula 8 | Experiência do jogador | 📁 - | - |
+| Aula 8 | Física nos Jogos | 📁 - fisica-jogos<br> :snake: asteroids2.py </br> | Física nos jogos e colisões entre objetos |
 
 ---
